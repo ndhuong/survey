@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+
+
+<link href="./css/table5.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="./js/lichtrucmod_cr.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container-fluid">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+		?>
+		<form action="./lichtrucmod_cr" method="POST">
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Chọn tháng cần tạo lịch trực MOD </span><br>
+					<span class="text-center"> 
+						<input type="month" name="month" id="month" class="txt" <?php if(isset($dtime)) echo 'value="'.$dtime.'"';?> >
+					</span>
+				</div>
+			</div>
+			<br>
+			
+			<div class="row">
+				<div class="col-sm-12" id="ketQua">
+					<?php 
+						if(isset($noidung)) echo $noidung; 
+					?>
+				</div>
+			</div>
+			
+		</form>
+	
+	</div>
+</body>
+</html>

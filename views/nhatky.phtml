@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+<div class="container">
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<form action="nhatky" method="post">
+			
+			
+  			từ ngày &nbsp;<input type="date" name ="batdau" class="txt" <?php if(isset($ngay1)) echo ' value="'.$ngay1.'" '; ?> >
+  			&nbsp; đến ngày &nbsp; <input type="date" name="ketthuc" class="txt" <?php if(isset($ngay2)) echo ' value="'.$ngay2.'" ';?> >
+  			<button type="submit" name="submit" class="btn btn-primary">Xem nhật ký</button>
+  			</form>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 text-center"><i> <br/>
+	<?php 
+		if(isset($ketqua)) echo $ketqua;
+		if($coketqua==1) echo $listtrang; 
+	?>	</i>	
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12 text-center">
+
+	 	<br>
+		<table class="table-striped">
+
+		<?php if($coketqua==1) echo '<tr><th class="text-center"> STT </th><th class="text-center"> Thời gian </th><th class="text-center"> Tên đăng nhập </th><th class="text-center">Nội dung </th></tr>'.$listkq; ?>
+		</table>
+	</div>
+</div>
+</div>
+</body>
+</html>

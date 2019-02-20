@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+</head>
+<body >
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+<br>
+<div class="container">
+	<?php if(isset($status)) echo $status ;?>
+
+	
+	<br>
+	<a class="btn btn-secondary text-center" href='./index.php?ylan=user'> &diams; &nbsp Tạo người dùng mới </a> 
+<?php echo $danhsach;?>
+
+</div>
+</body>
+</html>

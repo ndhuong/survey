@@ -1,0 +1,162 @@
+$ribbon-bg-color: lightblue;
+$ribbon-bg-active-color: darken($ribbon-bg-color, 10%);
+
+.box {
+  padding: 2em 0;
+  position: relative;
+}
+
+.ribbon-wrap {
+  position: relative;
+  width: 70%;
+  margin-bottom: 20px;
+  margin-left: -15px;
+  font-size: 18px;
+  line-height: 18px;
+  transition: width 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  &.open,
+  &:hover {
+    a {
+      background-color: $ribbon-bg-active-color;
+      
+      &:before {
+        border-top-color: $ribbon-bg-active-color;
+        border-bottom-color: $ribbon-bg-active-color;
+      }
+    }
+  }
+  .ribbon {
+    position: relative;
+    
+    &:before {
+      content: "";
+      height: 0;
+      width: 0;
+      display: block;
+      position: absolute;
+      top: 3px;
+      right: 0;
+    
+      // Drop Shadow
+      border-top: 29px solid rgba(0, 0, 0, .3);
+      border-bottom: 29px solid rgba(0, 0, 0, .3);
+      border-left: 29px solid rgba(0, 0, 0, .3);
+      border-right: 29px solid transparent;
+    }
+  
+    &:after {
+
+      // More Drop Shadow
+      content: "";
+      height: 3px;
+      background: rgba(0, 0, 0, .3);
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      left: 15px;
+      right: 58px;
+    }
+  }
+
+  &:hover,
+  &.open {
+    width: 90%;
+    transition: width 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+.ribbon a {
+  display: block;
+  padding: 20px;
+  position: relative; 
+  background: $ribbon-bg-color;
+  height: 58px;
+  margin-right: 29px;
+  color: #fff;
+  text-decoration: none;
+  
+  &:after {
+
+    // Wrap ribbon around box  
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    border-top: 15px solid #004a70;
+    border-left: 15px solid transparent;
+  }
+  
+  &:before {
+    
+    // Ribbon tail
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -29px;
+    border-top: 29px solid $ribbon-bg-color;
+    border-bottom: 29px solid $ribbon-bg-color;
+    border-right: 29px solid transparent;
+    border-left: 29px solid transparent;
+  }
+}
+
+.ribbon-content {
+    display: none;
+    background-color: #fff;
+    margin-top: 3px;
+    margin-right: 40px;
+    margin-left: 40px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border: 1px solid #efefef;
+}
+
+// Secondary styling
+//--------------------------------------------------
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 70%;
+  height: 600px;
+  background: #FFF;
+  margin: 40px auto;
+}
+
+.box-shadow {
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  
+  &:before,
+  &:after {
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+  }
+  
+  &:after {
+    right:10px; 
+    left:auto; 
+    transform:skew(8deg) rotate(3deg);
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+
+</head>
+<body>
+<?php echo thanhTieuDe('Trang chính',$arr); ?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+  ?>
+	<br>
+<br>
+<div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg"  data-toggle="collapse" data-target="#phieukhaosat" > &nbsp;Phiếu khảo sát khách hàng</button>
+              <div id="phieukhaosat" class="collapse"> <br>
+              <!--
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./phieumoi"'> Nhập phiếu KSKH </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./baocao"'> Xem báo cáo </button> <br>
+              -->
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./phieu2018"'> Nhập phiếu KSKH 2018</button> 
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./baocao2018"'> Xem báo cáo phiếu KSKH 2018</button> 
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./phieu_kinhdoanh"'> Nhập phiếu mới Kinh doanh</button>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./baocao2&loaibaocao=3"'> Xem báo cáo P. Kinh doanh</button>
+              </div>
+          </div>
+
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg"  data-toggle="collapse" data-target="#kscl" > Kiểm soát chất lượng</button>
+               <div id="kscl" class="collapse"> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./kscl_cr"'> Tạo mới vấn đề KSCL </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./kscl&type=1"'> Xem các vấn đề KSCL đã hoàn thành </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./kscl&type=2"'> Xem các vấn đề KSCL còn tồn tại </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./kscl&type=3"'> Xem tất cả các vấn đề KSCL</button> <br>
+               </div>
+          </div>
+     </div>
+     <br>
+<div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="collapse" data-target="#mod" > &nbsp;MOD - Manager On Duty </button>
+            <div id="mod" class="collapse"> <br>
+              <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./modc"' > &nbsp;Nhập  phiếu MOD Checklist </button>
+            <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./modc3"' > &nbsp;Xem phiếu MOD Checklist </button>
+              <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./grcl"' > &nbsp;Nhập Kiểm tra phòng khách</button>
+              <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./grcl3"' > &nbsp;Xem phiếu Kiểm tra phòng khách </button><br>
+              
+              <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./lichtrucmod"' > &nbsp;Lịch trực MOD </button>
+            </div>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="collapse" data-target="#khachvip" > Khách hàng VIP</button>
+              <div id="khachvip" class="collapse"> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./khachhang"'> Tạo mới khách hàng </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./khachhang3"'> Tìm kiếm thông tin khách hàng </button> <br>
+                <button type="button" class="btn btn-secondary btn-block btn-lg" onclick='window.location="./khachhang5"'> Xem thông tin khách hàng </button> <br>
+              </div>
+          </div>
+     </div>
+
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+          <div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <?php if(isset($xemphieu)) echo $xemphieu;?>  
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            
+          </div>
+     </div>
+     <!----
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+     <div class="row">
+     <div class="col-sm-1 "> </div>
+          <div class="col-sm-4 ">
+               <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="./main"' > &nbsp;</button>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            <button type="button" class="btn btn-success btn-block btn-lg" onclick='window.location="./main"'> &nbsp; </button>
+          </div>
+     </div>
+<!--Phần quản lý của admin ></!-->
+      <?php
+          if(isset($_SESSION['sa']))
+          {
+              
+            include './views/quanlyad.phtml';
+          }
+      ?>
+      <!--Hết Phần quản lý của admin ></!-->
+<div id="ketqua"></div>
+</div>
+
+
+</body>
+</html>
+
+

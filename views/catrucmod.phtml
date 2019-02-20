@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<?php echo $showheader;?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		<h1 class="tieudechinh"> <?php echo $tieudechinh;?></h1>
+		<br><br>
+		<form action="./catrucmod" method="POST">
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<?php 
+				if(isset($suachua)) echo '<input type=hidden name=sua value="'.$suachua.'">';
+			?>
+			
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Tên ca trực</span><br>
+					<span class="text-center"> 
+						<input type="text" name="tencatruc" placeholder="" value="<?php if(isset($tencatruc)) echo $tencatruc; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Ký hiệu</span><br>
+					<span class="text-center"> 
+						<input type="text" name="kyhieu" placeholder="" value="<?php if(isset($kyhieu)) echo $kyhieu; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Ghi chú</span><br>
+					<span class="text-center"> 
+						<input type="text" name="ghichu" placeholder="" value="<?php if(isset($ghichu)) echo $ghichu; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-6  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+		             <p></p>
+		        </div>
+    		</div>
+		</form>
+		<div class="row">
+			
+			<div class="col-sm-12">
+				<?php if(isset($danhsach)) echo $danhsach; ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

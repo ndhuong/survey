@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<script type="text/javascript" src="./js/lichtrucmod_change.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+
+		<br>
+		<?php if(isset($error)) echo $error; ?>
+		<br>
+		<form action="./lichtrucmod_change" method="POST">
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<input type=hidden name=dtime value="<?php echo $dtime; ?>">
+			<div class="row dong">
+				<div class="col-sm-5 text-right can-giua"> Ngày cần đổi</div>
+				<div class="col-sm-6 text-left"><?php if(isset($ngay1)) echo $ngay1;?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5 text-right can-giua"> Ca trực/Người trực</div>
+				<div class="col-sm-6 text-left"><span id="ketQua1"><input type="text" name="" class="txt" readonly> </span> 
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-5 text-right can-giua"> Ngày được đổi</div>
+				<div class="col-sm-6 text-left"><?php if(isset($ngay2)) echo $ngay2;?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5 text-right can-giua"> Ca trực/Người trực</div>
+				<div class="col-sm-6 text-left"><span id="ketQua2"> <input type="text" name="" class="txt" readonly></span> 
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12 text-center">	
+				<br>
+		             <input type="submit" class="submitbutton" value="Cập nhật lịch trực" name="submit" > 
+		             <p></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

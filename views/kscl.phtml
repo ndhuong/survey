@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/kscl.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_img.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/kscl.js"></script>
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr);?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+  <button type="button" class="btn btn-secondary btn-lg" onclick='window.location="index.php?ylan=kscl_cr"'> Tạo mới </button><br>
+  
+  <div class="row">
+  <div class="box">
+      <?php if(isset($noidung)) echo $noidung; ?>
+
+    </div>
+
+  </div>
+  
+
+</div>
+
+
+</body>
+</html>
+
+

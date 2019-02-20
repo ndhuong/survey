@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/noidungmau.js"></script>
+</head>
+<body>
+	<?php echo $showheader;?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		<h1 class="tieudechinh"> <?php echo $tieudechinh;?></h1>
+		<br><br>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="vip_ranks"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<?php 
+				if(isset($suachua)) echo '<input type=hidden name=sua value="'.$suachua.'">';
+			?>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Số thứ tự</span><br>
+					<span class="text-center"> 
+						<input type="text" name="stt" id="stt" placeholder="" value="<?php if(isset($stt)) echo $stt; ?>" class="txt">
+					</span>
+					<span id="ketQua"> <?php if(isset($stt_ok)) echo '<input type="hidden" name="sttok" value="1" >';  ?> </span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Tên loại VIP</span><br>
+					<span class="text-center"> 
+						<input type="text" name="tenloai" placeholder="" value="<?php if(isset($tenloai)) echo $tenloai; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-6  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+		             <p></p>
+		        </div>
+    		</div>
+		</form>
+		<div class="row">
+			
+			<div class="col-sm-12">
+				<?php if(isset($danhsach)) echo $danhsach; ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/box.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/baocao.js"></script>
+</head>
+<body>
+<?php echo thanhTieuDe('Báo cáo phiếu khảo sát khách hàng',$arr); ?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+<br><br>
+  <form action="./index.php" method="POST">
+  <input type=hidden name=ylan value="baocao2018"> 
+  <input type=hidden name=token value="<?php echo $token; ?>">
+  <div class="row dong">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-8">
+      <span class="text-left">Chọn thời gian xem</span><br>
+      <span class="text-center"> 
+        Từ ngày <input type="date" name="ngay_bat_dau" id="ngaybd"  <?php if(isset($ngay_bat_dau)) echo ' value="'.$ngay_bat_dau.'"'; ?> required>
+        &emsp; đến ngày <input type="date" name="ngay_ket_thuc" id="ngaykt" <?php if(isset($ngay_ket_thuc)) echo ' value="'.$ngay_ket_thuc.'"'; ?> required>
+        &emsp;<input type="submit" name="submit" value="Xem">
+      </span>
+
+    </div>
+  </div>
+  
+   <?php if(isset($ketqua)) echo $ketqua; ?>
+  <!--
+  <div class="style1" >
+  <h3 class="tde">         
+            <span >Em là con gà con, bò lon ton, bơi nhong nhong</span>   
+  </h3>
+  </div>
+  -->
+</form>
+
+</div>
+
+
+</body>
+</html>
+
+

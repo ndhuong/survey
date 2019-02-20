@@ -1,0 +1,50 @@
+.box {
+    border: 2px solid #0026FF;
+    margin-bottom: 20px;
+    background: #FFEB3B;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1em; /* */
+}
+.text-in-box{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.text-in-box2{
+    margin-top: 10px;
+    margin-left: 60px;
+}
+.style1 {
+    border-bottom: 2px solid #0026FF;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.style1 h3.tde {
+    margin: 0;
+    font-size: 1em;
+    line-height: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.style1 h3.tde :after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 20px solid #0026FF;
+    border-bottom: 0px solid transparent;
+    border-right: 0 solid transparent;
+    position: absolute;
+    top: 0px;
+    right: -20px;
+}
+
+.style1 h3.tde span {
+    background: #0026FF;
+    padding: 10px 20px 8px 20px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}

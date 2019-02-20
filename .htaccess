@@ -1,0 +1,22 @@
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_fileNAME} !-f
+#RewriteRule ^(([^/]+/)*[^./]+)$ /$1.php [NC,L]
+#AddType application/x-httpd-php .abc
+#RewriteRule ^([a-zA-Z0-9_-]+)$ /index.php?ylan=$1 [NC,L]
+
+# Bao  ve file .htaccess
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+ 
+# Rewrite url
+RewriteEngine On
+#RewriteBase /survey
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteRule ^(login)$ index.php?ylan=login [L]
+RewriteRule ^(.*)$ index.php?ylan=$1 [QSA,L]

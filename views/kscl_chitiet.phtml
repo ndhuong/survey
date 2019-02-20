@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio3.css" rel="stylesheet" type="text/css" />
+<link href="./css/box2.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_img2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/kscl.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="kcsl_chitiet"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<div id="top"></div>
+			<?php 
+				if(isset($noidung)) echo $noidung; 
+			?>
+		</form>
+	</div>
+</body>
+</html>

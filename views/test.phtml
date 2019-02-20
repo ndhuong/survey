@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+
+<link href="./css/table5.css" rel="stylesheet" type="text/css" />
+<!--
+
+
+<link href="./css/radio3.css" rel="stylesheet" type="text/css" />
+<link href="./css/box2.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_img.css" rel="stylesheet" type="text/css" />
+<link href="./css/radio2.css" rel="stylesheet" type="text/css" />
+<link href="./css/radio4.css" rel="stylesheet" type="text/css" />
+<link href="./css/clocklet.min.css" rel="stylesheet" type="text/css" />
+<script src="./js/clocklet.min.js"></script>
+<link rel="https://cdn.jsdelivr.net/npm/clocklet@0.2.3/css/clocklet.min.css">
+<script src="https://cdn.jsdelivr.net/npm/clocklet@0.2.3"></script>
+-->
+
+</head>
+<body>
+	
+	<?php echo thanhTieuDe('Tiêu đề 1',$arr);?>
+	<div class="container-fluid">
+    <form action="./test" method="POST">
+  <!--<input type=hidden name=ylan value="test">  -->
+    <input type="text" name="text" value="<?php if(isset($text)) echo $text; ?>" >
+      <br>
+      <?php if(isset($hangngay)) echo $hangngay; ?>
+      
+    <input type="submit" name="submit" value="Tạo">
+   </form>
+  </div>
+
+	</div>
+	</div>
+</body>

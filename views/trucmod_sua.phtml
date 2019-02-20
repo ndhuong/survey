@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_form.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+  
+  <form  action="index.php" method="POST">
+  	<input type=hidden name=ylan value="trucmod">
+	<input type=hidden name=sua value="<?php echo $suachua; ?>">  
+	<div class="row ">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<table><tr><td class="text-left"><b>Họ và tên</b></td>
+	      <td><input type="text" name="hoten" value="<?php echo $hoten;?>" class="txt" required> </td></tr>
+			<tr><td class="text-left"><b>Đơn vị</b></td>
+	      <td><?php echo loadDanhSachDonVi($donvi);?> </td></tr>
+	      <tr><td class="text-left"><b>Email</b></td><td>
+	      <input type="email" placeholder="nhập email" name="email" value="<?php echo $email;?>" class="txt">  
+	      </td></tr>
+	      <tr><td colspan="2" class="text-center"><br><input type="submit" name ="submit" class="submitbutton" value="Cập nhật"></td></tr></table>	
+			
+		</div>
+	</div>
+    
+    </div>
+  </form>
+</div>
+
+
+</body>
+</html>

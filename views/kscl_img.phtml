@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/kscl.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_img.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/baocao.js"></script>
+<script>
+function preview_images_1(){
+ 
+  $('#image_preview').append("<br><img class='img1' src='"+URL.createObjectURL(event.target.files[0])+"'><input type='text' name='pic_detail' id='pic_detail' placeholder='Ghi chú ảnh'> ");
+  $('#clr_img').html('<a href="#" class="btn btn-warning" onclick="clear_image()"> Xóa tất cả các ảnh</a>');
+ 
+}
+function preview_images(){
+ var total_file=document.getElementById("images").files.length;
+ for(var i=0;i<total_file;i++)
+ {
+  $('#image_preview').append("<br><img class='img1' src='"+URL.createObjectURL(event.target.files[i])+"'><input type='text' name='pic_detail[]' id='pic_detail' placeholder='Ghi chú ảnh'> ");
+  $('#clr_img').html('<a href="#" class="btn btn-warning" onclick="clear_image()"> Xóa tất cả các ảnh</a>');
+ }
+}
+function clear_image(){
+  document.getElementById('images').value='';
+  document.getElementById('pic_detail').value='';
+  $('#image_preview').html('');
+  $('#clr_img').html('');
+}
+</script>
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+  <form action="./index.php" method="POST" enctype="multipart/form-data">
+  <input type=hidden name=ylan value="kscl_img"> 
+  <input type=hidden name=token value="<?php echo $token; ?>">
+  <div class="row">
+    <div class="col-sm-2">   </div>
+    <div class="col-sm-8">
+      <?php 
+        if(isset($tieude)) echo $tieude; 
+        if(isset($taomoi)) echo $taomoi;
+      ?> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">   </div>
+    <div class="col-sm-8">
+      <?php 
+        if(isset($img_old)) echo $img_old; 
+        
+      ?> 
+    </div>
+  </div>
+  <div class="row dong">
+      <div class="col-sm-3"> </div>
+      <div class="col-sm-6">
+        <span class="text-left"> Ảnh Vấn đề</span><br>
+        <span class="text-center">
+        
+          <input type="file" class="txt" id="images" <?php if(isset($img_old)) echo ' name="images" onchange="preview_images_1()"'; else echo ' name="images[]" onchange="preview_images()" multiple '; ?>  accept="image/*"/> 
+        
+        </span>
+        <span class="text-right" id="clr_img"></span>
+      </div>
+      
+    </div>
+  <div class="row ">
+      <div class="col-sm-10 text-center">
+        <div id="image_preview"></div>
+      </div>
+    </div>
+    <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6  text-center ">
+                <br>
+                 <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+                 <p></p>
+            </div>
+        </div>
+  
+  
+  
+</form>
+
+</div>
+
+
+</body>
+</html>
+

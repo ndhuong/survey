@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/infovip2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<?php echo $showheader;?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		<h1 class="tieudechinh"> <?php echo $tieudechinh;?></h1>
+		<br><br>
+		<?php if(isset($khach)) echo $khach; ?>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="kh_note"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<input type=hidden name=khachhang value="<?php echo $khachhang; ?>">
+			<?php 
+				if(isset($suachua)) echo '<input type="hidden" name="sua" value="'.$suachua.'">';
+			?>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Ngày/tháng</span><br>
+					<span class="text-center"> 
+						<input type="date" name="ngaythang" placeholder="" value="<?php if(isset($ngaythang)) echo $ngaythang; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Nội dung ghi chú</span><br>
+					<span class="text-center"> 
+						<input type="text" name="noidung" placeholder="" value="<?php if(isset($noidung)) echo $noidung; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-6  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+		             <p></p>
+		        </div>
+    		</div>
+		</form>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<?php if(isset($noidungghichu)) echo $noidungghichu; ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

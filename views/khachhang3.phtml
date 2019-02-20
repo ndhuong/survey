@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/khachhang3.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="khachhang3"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Tìm theo Mã số</span><br>
+					<span class="text-center"> 
+						<input type="number" name="maso" id="maso" value="<?php if(isset($maso)) echo $maso; ?>" placeholder="Nhập mã số cần tìm" class="txt" min="0" step="1">	
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Hoặc tìm theo Họ và tên</span><br>
+					<span class="text-center"> 
+						<input type="text" name="hovaten" placeholder="" value="<?php if(isset($hoten)) echo $hoten; ?>" class="txt" id="hovaten" placeholder="Nhập họ/tên cần tìm">
+					</span>
+				</div>
+			</div>
+			<div class="row">
+		        
+		        <div class="col-sm-10  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="Tìm kiếm" name="submit" > &nbsp;&nbsp;&nbsp;HOẶC <button type="button" class="submitbutton" onclick='window.location="index.php?ylan=khachhang"' > &nbsp;Tạo mới </button>
+		             <p></p>
+		        </div>
+		        <div class="col-sm-2"> </div>
+    		</div>
+    		<div class="row dong">
+				<div class="col-sm-12">
+					<span id="ketQua"><?php if(isset($danhsach)) echo $danhsach; ?></span>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+</body>
+</html>

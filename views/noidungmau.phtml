@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/noidungmau.js"></script>
+</head>
+<body>
+	<?php echo $showheader;?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		<h1 class="tieudechinh"> <?php echo $tieudechinh;?></h1>
+		<br><br>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="noidungmau"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<?php 
+				if(isset($suachua)) echo '<input type=hidden name=sua value="'.$suachua.'">';
+			?>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Số thứ tự</span><br>
+					<span class="text-center"> 
+						<input type="text" name="stt" id="stt" placeholder="" value="<?php if(isset($stt)) echo $stt; ?>" class="txt">
+					</span>
+					<span id="ketQua"> <?php if(isset($stt_ok)) echo '<input type="hidden" name="sttok" value="1" >';  ?> </span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Nội dung mẫu</span><br>
+					<span class="text-center"> 
+						<input type="text" name="noidung" placeholder="" value="<?php if(isset($noidung)) echo $noidung; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Tên trường(biến)</span><br>
+					<span class="text-center"> 
+						<input type="text" name="tentruong" placeholder="" value="<?php if(isset($tentruong)) echo $tentruong; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Tên SQL</span><br>
+					<span class="text-center"> 
+						<input type="text" name="tensql" placeholder="" value="<?php if(isset($tensql)) echo $tensql; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Loại nội dung</span><br>
+					<select name="loai" class="txt"> <option value="-1"> Chọn loại</option>
+						<option value="1" <?php if(isset($loai)&&($loai==1)) echo 'selected'; ?> > Câu trả lời văn bản chữ </option>
+						<option value="2" <?php if(isset($loai)&&($loai==2)) echo 'selected'; ?> > Câu trả lời Có / Không </option>
+						<option value="3" <?php if(isset($loai)&&($loai==3)) echo 'selected'; ?> > Câu trả lời lựa chọn 5->1 </option>
+						<option value="4" <?php if(isset($loai)&&($loai==4)) echo 'selected'; ?> > Tiêu đề chính </option>
+						<option value="5" <?php if(isset($loai)&&($loai==5)) echo 'selected'; ?> > Tiêu đề phụ </option>
+						<option value="6" <?php if(isset($loai)&&($loai==6)) echo 'selected'; ?> > Dòng số phiếu </option>
+						<option value="7" <?php if(isset($loai)&&($loai==7)) echo 'selected'; ?> > Dòng ngày khảo sát </option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<fieldset>
+						<legend>Xuất hiện ở </legend>
+						<div>
+						    <input id="box1" type="checkbox" name="nhahang" <?php if(!empty($nhahang)) echo 'value="1" checked '; ?> class="with-font" />
+						    <label for="box1">Nhà Hàng</label>
+						  </div>
+						  <div>
+						    <input id="box2" type="checkbox" name="letan" <?php if(!empty($letan)) echo 'value="1" checked ';;?> class="with-font"/>
+						    <label for="box2">Lễ tân</label>
+						  <div>
+						  <div>
+						    <input id="box3" type="checkbox" name="kinhdoanh" <?php if(!empty($kinhdoanh)) echo 'value="1" checked ';?> class="with-font" />
+						    <label for="box3">Kinh doanh</label>
+						 </div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-6  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+		             <p></p>
+		        </div>
+    		</div>
+		</form>
+		<div class="row">
+			
+			<div class="col-sm-12">
+				<?php if(isset($danhsach)) echo $danhsach; ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

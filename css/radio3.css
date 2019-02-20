@@ -1,0 +1,93 @@
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+.text_radio3 {
+  color: #607d8b;
+  display: inline-block;
+  cursor: pointer;
+  font-family: roboto;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+input[type=radio]:checked + .text_radio3{
+  color: #f44336;
+  background: #ffeb3b;
+}
+
+.text_radio3 + input[type=radio] + label {
+  border-left: solid 3px #FFC107;
+}
+.radio-group {
+  border: solid 3px #FFC107;
+  display: inline-block;
+  margin: 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40px;
+}
+.text4caption{
+  font-family: Trebuchet, Arial, sans-serif;
+  margin: 5px;
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-top: 5px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+}
+.text4row-left{
+  font-family: Trebuchet, Arial, sans-serif;
+  margin: 5px;
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-top: 5px;
+  text-align: right;
+  font-size: 1em;
+}
+.text4row-right{
+  font-family: Trebuchet, Arial, sans-serif;
+  margin: 5px;
+  padding-left: 0px;
+  padding-right:0px;
+  padding-top: 5px;
+  text-align: left;
+  font-size: 1em;
+}
+.select-area{
+  background: #B2EBF2;
+  border: solid 3px #FFC107;
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.select-bar{
+  background: #FFEB3B;
+  color: #F44336;
+  border: solid 3px #FFC107;
+  width: 100%;
+}
+.lienke{
+  margin-top: 7px;
+  margin-bottom: -3px !important;
+
+    margin-left: 0px;
+    margin-right: 0px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+.go-top-icon{
+  text-align: right;
+  margin:5px;
+  padding: 5px;
+  color: red;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');

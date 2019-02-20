@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/table5.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container-fluid">
+		<br>
+		<?php if(isset($error)) echo $error; ?>
+		<br>
+		<form action="./lichtrucmod_update" method="POST">
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<input type=hidden name=dtime value="<?php echo $dtime; ?>">
+			<div class="row">
+				<div class="col-sm-12">
+					<?php 
+						if(isset($hangngay)) echo $hangngay; 
+						if(isset($newid)) echo'<input type=hidden name=newid value="'.$newid.'">';
+					?>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-12 text-center"> </div>	
+				<br>
+		             <input type="submit" class="submitbutton" value="Cập nhật lịch trực" name="submit" > 
+		             <p></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

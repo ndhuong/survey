@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/phieu.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr);?>
+	<br>
+	<div class="container">
+	<?php 
+		if(isset($error)) echo $error;
+		if(isset($status)) echo $status;
+
+	?>
+	
+	<br><br>
+	<form action="./index.php" method="POST">
+	<input type=hidden name=ylan value="phieumoi"> 
+	<input type=hidden name=token value="<?php echo $token; ?>">
+	<?php 
+		include './controller/phieumoi2.php';
+	?>
+	<div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6  text-center ">
+            <br>
+             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+             <p></p>
+        </div>
+    </div>
+</form>
+</body>
+</html>

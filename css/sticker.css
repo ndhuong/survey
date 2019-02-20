@@ -1,0 +1,48 @@
+	.sticker {
+		cursor: pointer;
+		height: 120px;
+    	width: 120px;
+    	image-rendering: -webkit-optimize-contrast;
+    	background-size: 432px 288px;
+    	background-position: -12px -12px;
+	}
+	.sticker-static {
+		background-size: 120px 120px !important;
+		background-position: 0 0 !important;
+	}
+	.sticker-animate {
+		-webkit-animation-name: stickerAnimation;
+		-webkit-animation-duration: 0.9s;
+		-webkit-animation-timing-function: step-start;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-fill-mode: both;
+	}
+	@-webkit-keyframes stickerAnimation {
+	  	0% {
+	   		background-position: -12px -12px;
+	  	}
+	  	25% {
+	    	background-position: -156px -12px;
+	  	}
+	  	50% {
+	    	background-position: -300px -12px;
+	  	}
+	  	75% {
+	    	background-position: -156px -156px;
+	  	}
+	  	100% {
+	    	background-position: -12px -156px;
+	  	}
+	}
+	.sticker-1 {
+		background-image: url(sticker.png);
+	}
+	.sticker-2 {
+		background-image: url(sticker-2.png);
+	}
+	.sticker-3 {
+		background-image: url(sticker-static.png);
+	}
+	.sticker-4 {
+		background-image: url(sticker-static-2.png);
+	}

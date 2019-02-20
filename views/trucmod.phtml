@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_form.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+			
+			<div class="row dong">
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-8 text-left">
+					<button type="button" class="btn btn-secondary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >  Tạo mới </button>
+				</div>
+			</div>
+			
+
+			<div class="row dong">
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-8">
+					<span class="text-center "><h3></h3></span><br>
+				</div>
+			</div>
+			
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-8">
+		            <?php if(isset($danhsach)) echo $danhsach; ?>
+		        </div>
+    		</div>
+		
+		
+	<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="index.php" method="POST">
+  	<input type=hidden name=ylan value="trucmod">
+	<div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+   </div>  
+	<h2> &emsp;Thêm người trực mới</h2>
+    <div class="container_modal">
+		<table>
+      <tr><td class="text-left"><b>Họ và tên</b></td>
+      <td><input type="text" name="hoten" placeholder="Nhập họ và tên" value="" class="txt" required> </td></tr>
+		<tr><td class="text-left"><b>Đơn vị</b></td>
+      <td><?php echo loadDanhSachDonVi();?> </td></tr>
+      <tr><td class="text-left"><b>Email</b></td><td>
+      <input type="email" placeholder="email" name="email" id="email" class="txt">  
+      </td></tr>
+      <tr><td colspan="2" class="text-center"><br><input type="submit" name ="submit" class="submitbutton" value="Tạo mới"></td></tr></table>
+      
+    </div>
+	<?php 	
+		if(isset($suachua)) echo '<input type=hidden name=sua value="'.$suachua.'">';
+	?>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+	</div>
+</body>
+</html>

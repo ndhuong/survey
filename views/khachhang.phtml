@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/radio.css" rel="stylesheet" type="text/css" />
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/khachhang.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+		<form action="./index.php" method="POST">
+			<input type=hidden name=ylan value="khachhang"> 
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			<?php 
+				if(isset($suachua)) echo '<input type=hidden name=sua value="'.$suachua.'">';
+			?>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Mã số</span><br>
+					<span class="text-center"> 
+						<input type="number" name="maso" id="maso" value="<?php if(isset($maso)) echo $maso; ?>" class="txt" min="0" step="1" <?php if(isset($suachua)) echo 'readonly';?> >	
+					</span>
+					<span id="ketQua"> <?php if(isset($ma_so_ok)) echo '<input type="hidden" name="ma_ok" value="1" >';  ?> </span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Họ và tên</span><br>
+					<span class="text-center"> 
+						<input type="text" name="hovaten" placeholder="" value="<?php if(isset($hovaten)) echo $hovaten; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Giới tính</span><br>
+					<span class="text-center"> 
+						<select name="gioitinh" class="txt"> <option value="0"> --- Chọn --- </option>
+						<option value="1" <?php if(isset($gioitinh)&&($gioitinh==1)) echo 'selected'; ?> > Nam </option>
+						<option value="2" <?php if(isset($gioitinh)&&($gioitinh==2)) echo 'selected'; ?> > Nữ </option>
+						<option value="0" <?php if(isset($gioitinh)&&($gioitinh==0)) echo 'selected'; ?> > Không xác định </option>
+					</select>
+					</span>
+				</div>
+			</div>
+			
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Ngày sinh</span><br>
+					<span class="text-center"> 
+						<input type="date" name="ngaysinh" placeholder="" value="<?php if(isset($ngaysinh)) echo $ngaysinh; ?>" class="txt" required>
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Đơn vị</span><br>
+					<span class="text-center"> 
+						<input type="text" name="donvi" placeholder="" value="<?php if(isset($donvi)) echo $donvi; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Số điện thoại</span><br>
+					<span class="text-center"> 
+						<input type="number" name="dienthoai" placeholder="" value="<?php if(isset($dienthoai)) echo $dienthoai; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Email</span><br>
+					<span class="text-center"> 
+						<input type="email" name="email" placeholder="" value="<?php if(isset($email)) echo $email; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Số Chứng minh thư nhân dân/ Thẻ căn cước</span><br>
+					<span class="text-center"> 
+						<input type="text" name="socmtnd" placeholder="" value="<?php if(isset($socmtnd)) echo $socmtnd; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Địa chỉ</span><br>
+					<span class="text-center"> 
+						<input type="text" name="diachi" placeholder="" value="<?php if(isset($diachi)) echo $diachi; ?>" class="txt">
+					</span>
+				</div>
+			</div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6">
+					<span class="text-left">Cấp bậc VIP</span><br>
+					<span class="text-center"> 
+						<?php if(isset($loadvip)) echo $loadvip; ?>
+					</span>
+				</div>
+			</div>
+			
+			<div class="row">
+		        <div class="col-sm-2"></div>
+		        <div class="col-sm-6  text-center ">
+		            <br>
+		             <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+		             <p></p>
+		        </div>
+    		</div>
+		</form>
+		<div class="row">
+			
+			<div class="col-sm-12">
+				<?php if(isset($danhsach)) echo $danhsach; ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

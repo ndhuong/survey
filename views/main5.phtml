@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+
+</head>
+<body>
+<?php 
+        echo $showheader; 
+       
+?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+  ?>
+	<br>
+<div class="tieudechinh"><h2> Menu chính</h2></div>
+
+<br>
+<div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=khachhang3"' > &nbsp;Danh sách khách</button>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=main3"' > ượng</button>
+          
+          </div>
+     </div>
+     <br>
+<div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=vip_ranks"' > &nbsp;Phân loại VIP</button>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=main5"' > Báo cáo khách VIP</button>
+          
+          </div>
+     </div>
+
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+          <div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <?php if(isset($xemphieu)) echo $xemphieu;?>  
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            
+          </div>
+     </div>
+     <!----
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+     <div class="row">
+     <div class="col-sm-1 "> </div>
+          <div class="col-sm-4 ">
+               <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=main"' > &nbsp;</button>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            <button type="button" class="btn btn-success btn-block btn-lg" onclick='window.location="index.php?ylan=main"'> &nbsp; </button>
+          </div>
+     </div>
+<!--Phần quản lý của admin ></!-->
+      <?php
+          if(isset($_SESSION['sa']))
+          {
+              
+            include './views/quanlyad.phtml';
+          }
+      ?>
+      <!--Hết Phần quản lý của admin ></!-->
+<div id="ketqua"></div>
+</div>
+
+
+</body>
+</html>
+
+

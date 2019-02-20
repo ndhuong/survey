@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/table5.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/grcl3.js"></script>
+</head>
+<body>
+	<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+	<br>
+	<div class="container">
+		<?php 
+			if(isset($error)) echo $error;
+			if(isset($status)) echo $status;
+
+		?>
+		
+		<br><br>
+		<form action="./grcl3" method="POST">
+			<input type=hidden name=token value="<?php echo $token; ?>">
+			
+			<div id="top"></div>
+			<div class="row dong">
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-7">
+					<span class="text-left">Chọn tháng/năm cần xem</span><br>
+					<span class="text-center"> 
+						<?php
+							 if(isset($chonthang)) echo $chonthang;
+							 if(isset($chonnam)) echo $chonnam;
+						?>
+					</span>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="ketQua"><?php if(isset($noidung)) echo $noidung; ?></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

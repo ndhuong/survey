@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+
+</head>
+<body>
+<?php 
+        echo $showheader; 
+       
+?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+   // echo 'Quản lý='.$_SESSION['user_quanly'].'Admin='.$_SESSION['user_admin'];
+  ?>
+	<br>
+<div class="tieudechinh"><h2> Phiếu khảo sát khách hàng <br> Bộ phận Lễ tân</h2></div>
+
+<br>
+<div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <?php echo $phieu;?> 
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <?php echo $baocao;?> 
+          
+          </div>
+     </div>
+
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+          <div class="row">
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+              <?php if(isset($xemphieu)) echo $xemphieu;?>  
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            
+          </div>
+     </div>
+     <!----
+     <div class="row"> <div class="col"> &nbsp;  </div> </div>
+     <div class="row">
+     <div class="col-sm-1 "> </div>
+          <div class="col-sm-4 ">
+               <button type="button" class="btn btn-primary btn-block btn-lg" onclick='window.location="index.php?ylan=main"' > &nbsp;</button>
+          </div>
+          <div class="col-sm-1 ">
+          </div>
+          <div class="col-sm-4 ">
+            <button type="button" class="btn btn-success btn-block btn-lg" onclick='window.location="index.php?ylan=main"'> &nbsp; </button>
+          </div>
+     </div>
+<!--Phần quản lý của admin ></!-->
+      <?php
+          if(isset($_SESSION['sa']))
+          {
+              
+            include './views/quanlyad.phtml';
+          }
+      ?>
+      <!--Hết Phần quản lý của admin ></!-->
+<div id="ketqua"></div>
+</div>
+
+
+</body>
+</html>
+
+

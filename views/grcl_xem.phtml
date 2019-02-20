@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/radio3.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/grcl_xem.js"></script>
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr); ?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+<br><br>
+  <form action="./index.php" method="POST">
+  <input type=hidden name=ylan value="grcl_xem"> 
+  <input type=hidden name=token value="<?php echo $token; ?>">
+  <div class="row dong">
+
+    <div class="col-sm-10 text-center">
+      <?php if(isset($top)) echo $top; ?>
+    <!--    <a class="btn btn-secondary" href="<?php echo $backday;?>"><i class="fa fa-backward" aria-hidden="true"></i></a>
+        &emsp;
+        <input type="text" name="ngay" id="ngay" value="<?php if(isset($ngay)) echo $ngay; ?>" readonly>
+        &emsp;
+        <a class="btn btn-secondary" href="<?php echo $nextday;?>"><i class="fa fa-forward" aria-hidden="true"></i></a>
+      -->
+    </div>
+  </div>
+  <div id="ketQua"><?php if(isset($noidung)) echo $noidung; ?></div>
+  </form>
+  
+   
+  
+  
+
+</div>
+
+
+</body>
+</html>
+
+

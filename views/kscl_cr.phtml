@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/kscl.css" rel="stylesheet" type="text/css" />
+<link href="./css/popup_img.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/baocao1.js"></script>
+<script>
+function preview_images(){
+ var total_file=document.getElementById("images").files.length;
+ for(var i=0;i<total_file;i++)
+ {
+  $('#image_preview').append("<br><img class='img1' src='"+URL.createObjectURL(event.target.files[i])+"'><input type='text' name='pic_detail[]' id='pic_detail' placeholder='Ghi chú ảnh'> ");
+  $('#clr_img').html('<a href="#" class="btn btn-warning" onclick="clear_image()"> Xóa tất cả các ảnh</a>');
+ }
+}
+function clear_image(){
+  document.getElementById('images').value='';
+  document.getElementById('pic_detail').value='';
+  $('#image_preview').html('');
+  $('#clr_img').html('');
+}
+</script>
+</head>
+<body>
+<?php echo thanhTieuDe($tieudechinh,$arr);?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+  <form action="./index.php" method="POST" enctype="multipart/form-data">
+      <input type=hidden name=ylan value="kscl_cr"> 
+      <input type=hidden name=token value="<?php echo $token; ?>">
+      <?php 
+        if(isset($sua)) echo '<input type=hidden name=sua value="'.$sua.'">';
+      ?>
+      <div class="row dong">
+        <div class="col-sm-3"> </div>
+        <div class="col-sm-6">
+          <span class="text-left">Tóm tắt vấn đề</span><br>
+          <span class="text-center"> 
+            <input type="text" name="tomtat" placeholder="" value="<?php if(isset($tomtat)) echo $tomtat; ?>" class="txt" required>
+          </span>
+        </div>
+      </div>
+      <div class="row dong">
+        <div class="col-sm-3"> </div>
+        <div class="col-sm-6">
+          <span class="text-left">Vấn đề thuộc đơn vị</span><br>
+          <span class="text-center"> 
+            <?php if(isset($donvi)) echo loadDanhSachDonVi('donvi',$donvi); else echo loadDanhSachDonVi('donvi'); ?>
+          </span>
+        </div>
+      </div>
+      <div class="row dong">
+        <div class="col-sm-3"> </div>
+        <div class="col-sm-6">
+          <span class="text-left">Loại vấn đề</span><br>
+          <select name="loailoi" class="txt"> <option value="-1"> &darr;&nbsp;&nbsp; Chọn loại &nbsp;&nbsp;&darr;</option>
+            <option value="1" <?php if(isset($loailoi)&&($loailoi==1)) echo 'selected'; ?> > Rất quan trọng </option>
+            <option value="2" <?php if(isset($loailoi)&&($loailoi==2)) echo 'selected'; ?> > Quan trọng </option>
+            <option value="3" <?php if(isset($loailoi)&&($loailoi==3)) echo 'selected'; ?> > Bình thường </option>
+            
+          </select>
+          
+        </div>
+      </div>
+    <div class="row dong">
+      <div class="col-sm-3"> </div>
+      <div class="col-sm-6">
+        <span class="text-left"> Ngày khởi tạo</span><br>
+        <span class="text-center"> 
+          <input type="date" name="ngaykhoitao" value="<?php if(isset($ngaykhoitao)) echo $ngaykhoitao; ?>" required class="txt">
+        </span>
+      </div>
+    </div>
+    
+    <div class="row dong">
+        <div class="col-sm-3"> </div>
+        <div class="col-sm-6">
+          <span class="text-left">Mô tả cụ thể vấn đề</span><br>
+          <span class="text-center"> 
+            <input type="text" name="motaloi" placeholder="" value="<?php if(isset($motaloi)) echo $motaloi; ?>" class="txt" required>
+          </span>
+        </div>
+    </div>
+    <div class="row dong">
+      <div class="col-sm-3"> </div>
+      <div class="col-sm-6">
+        <span class="text-left"> Ảnh Vấn đề</span><br>
+        <span class="text-center">
+        <?php 
+          if(isset($anh)) echo $anh; 
+          else 
+            echo '
+          <input type="file" class="txt" id="images" name="images[]" onchange="preview_images();" multiple accept="image/*"/> ';
+        ?>
+        </span>
+        <span class="text-right" id="clr_img"></span>
+      </div>
+      
+    </div>
+    <div class="row ">
+      <div class="col-sm-10 text-center">
+        <div id="image_preview"></div>
+      </div>
+    </div>
+    <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6  text-center ">
+                <br>
+                 <input type="submit" class="submitbutton" value="<?php echo $tieude_submit; ?>" name="submit" > 
+                 <p></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
+
+

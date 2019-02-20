@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<?php include './views/ndhheader.phtml'; ?> 
+<!--
+<link href="./css/text1.css" rel="stylesheet" type="text/css" />
+<link href="./css/box.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/baocao.js"></script>
+-->
+</head>
+<body>
+<?php echo thanhTieuDe('Báo cáo phiếu khảo sát khách hàng',$arr); ?>
+
+<div class="container">
+  <?php 
+    if(isset($error)) echo $error;
+    if(isset($status)) echo $status;
+
+  ?>
+	<br>
+<br><br>
+    
+   <?php if(isset($ketqua)) echo $ketqua; ?>
+  <!--
+  <div class="style1" >
+  <h3 class="tde">         
+            <span >Em là con gà con, bò lon ton, bơi nhong nhong</span>   
+  </h3>
+  </div>
+  -->
+</form>
+
+</div>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,45 @@
+/*
+.table-wrapper { 
+    overflow-x:scroll;
+    overflow-y:visible;
+    width:250px;
+    margin-left: 120px;
+}
+
+
+td, th {
+    padding: 5px 20px;
+    width: 100px;
+}
+
+th:first-child {
+    position: fixed;
+    left: 5px
+}
+*/
+.cell-date{
+	border-left: 1px solid white;
+
+
+}
+.cell-month{
+	border: 1px solid white;
+	
+
+}
+.fix-cell{
+	position: fixed;
+	z-index: 9999;
+	text-align: left;
+	margin-top: 5px;
+	margin-left: 5px;
+	
+/*	color: #000; */
+	vertical-align: middle;
+
+}
+
+/*
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #FFFFFF;}
+*/
